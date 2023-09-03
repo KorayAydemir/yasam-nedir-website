@@ -8,10 +8,10 @@ const __dirname = path.dirname(__filename);
 const config = {
     mode: 'development',
     devtool: 'cheap-source-map',
-    entry: "./src/index.js",
+    entry: "./src/client/index.js",
     output: {
         filename: "[name].[contenthash].js",
-        path: path.resolve(__dirname, "build"),
+        path: path.resolve(__dirname, "../build"),
     },
     module: {
         rules: [
@@ -31,7 +31,7 @@ const config = {
         }),
     ],
     devServer: {
-        static: path.join(__dirname, "public"),
+        static: path.join(__dirname, "../public"),
         compress: true,
     },
     optimization: {
