@@ -1,19 +1,16 @@
-import path from "path"
 import express from "express"
-import { fileURLToPath } from "url";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import router from "./router/index.js";
+import ejs from "ejs"
 
 const app = express()
 
-const rootDir = express.static(path.join(__dirname, "../"))
+app.set("view engine", "ejs")
+app.set("views", 'build/views')
 
-const indexPath = path.join(__dirname, "../index.html")
-
-app.use(rootDir)
-
-app.get('/', (req, res) => {
-    res.sendFile(indexPath)
+app.get('/', (_req, res) => {
+    res.render('index', {dynamicValue: "hello"})
 })
+
+//app.get('*', router)
 
 export default app;

@@ -16,6 +16,10 @@ const config = {
     module: {
         rules: [
             {
+                test: /\.ejs/,
+                use: 'raw-loader',
+            },
+            {
                 test: /\.(?:js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
@@ -26,8 +30,14 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./public/index.html",
-            filename: "index.html",
+            template: "public/views/index.ejs",
+            filename: "views/index.ejs",
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                conservativeCollapse: true
+            },
+            inject: false
         }),
     ],
     devServer: {
