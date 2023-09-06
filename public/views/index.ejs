@@ -4,11 +4,15 @@
         <title></title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="build/client/vendors.js" defer></script>
+        <script src="build/client/runtime.js" defer></script>
+        <script src="build/client/yasam.nedir.front-end.app.js" defer></script>
+        <script id="preloaded-initial-state">
+            window.__SERVER_SIDE_PROPS__ = <%- JSON.stringify(serverSideProps) %>
+        </script>
+
     </head>
     <body>
-        <div id="root"></div>
-        <div>
-            <p>This is a dynamic value from EJS: <%= dynamicValue %></p>
-        </div>
+        <div id="root"> <%- html %> </div>
     </body>
 </html>
