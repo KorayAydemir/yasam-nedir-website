@@ -1,37 +1,39 @@
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-
 import { fileURLToPath } from "url";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const config = {
     mode: 'development',
-    devtool: 'cheap-source-map',
-    entry: "./src/client/index.js",
+    entry: { 'yasam.nedir.back-end.app': "./src/server/index.mjs" },
+    target: "node",
+    externalsPresets: { node: true },
     output: {
-        filename: "[name].[contenthash].js",
-        path: path.resolve(__dirname, "../build"),
+        //filename: "[name].[contenthash].js",
+        filename: "[name].js",
+        path: path.resolve(__dirname, "../build/server"),
     },
     module: {
         rules: [
             {
-                test: /\.ejs/,
-                use: 'raw-loader',
-            },
-            {
-                test: /\.(?:js|jsx)$/,
+                test: /\.(?:js|jsx|mjs)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
                 },
+            },
+            {
+                test: /\.ejs/,
+                use: 'raw-loader',
             },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: "public/views/index.ejs",
-            filename: "views/index.ejs",
+            filename: "../views/index.ejs",
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
@@ -40,10 +42,6 @@ const config = {
             inject: false
         }),
     ],
-    devServer: {
-        static: path.join(__dirname, "../public"),
-        compress: true,
-    },
     optimization: {
         runtimeChunk: "single",
         splitChunks: {
@@ -53,9 +51,16 @@ const config = {
                     name: "vendors",
                     chunks: "all",
                 },
+                app: {
+                    test: /[\\/]src[\\/]/,
+                    name: "app",
+                    chunks: "all",
+                    enforce: true
+                }
             },
         },
     },
+
 };
 
 export default config;

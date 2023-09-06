@@ -9,5 +9,17 @@
             }
         ],
         ["@babel/preset-react", {"runtime": "automatic"}]
+    ],
+    "plugins": [
+        ["babel-plugin-module-resolver",
+            {
+                "alias": {
+                    "@app": "./src/app",
+                    "@app.index": "./src/app/index.js",
+                    "@services": "./src/app/services",
+                    "@styles": "./src/styles"
+                }
+            }
+        ]
     ]
 }
