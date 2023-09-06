@@ -1,21 +1,21 @@
 import path from "path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
 
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const config = {
-    mode: 'production',
-    entry: "./src/index.js",
+    mode: 'development',
+    entry: { "yasam.nedir.front-end.app": "./src/client/index.mjs" },
     output: {
-        filename: "[name].[contenthash].js",
-        path: path.resolve(__dirname, "../build"),
+        //filename: "[name].[contenthash].js",
+        filename: "[name].js",
+        path: path.resolve(__dirname, "../build/client"),
     },
     module: {
         rules: [
             {
-                test: /\.(?:js|jsx)$/,
+                test: /\.(?:js|jsx|mjs)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
@@ -23,21 +23,21 @@ const config = {
             },
         ],
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: "./public/index.html",
-            filename: "index.html",
-        }),
-    ],
     optimization: {
         runtimeChunk: "single",
         splitChunks: {
             cacheGroups: {
-                vendor: {
+                vendors: {
                     test: /[\\/]node_modules[\\/]/,
                     name: "vendors",
                     chunks: "all",
                 },
+                views: {
+                    test: /[\\/]public[\\/]/,
+                    name: "views",
+                    chunks: "all",
+                    enforce: true
+                }
             },
         },
     },
