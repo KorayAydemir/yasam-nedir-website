@@ -5,6 +5,7 @@ import Yasambilim from "./infrastructure/views/yasambilim/index.mjs";
 
 const App = (props) => {
     const { serverSideProps } = props;
+
     return (
         <Routes>
             <Route path="/" 

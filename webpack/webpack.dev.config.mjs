@@ -7,6 +7,7 @@ const __dirname = path.dirname(__filename);
 const config = {
     mode: 'development',
     entry: { "yasam.nedir.front-end.app": "./src/client/index.mjs" },
+    devtool: "eval-source-map",
     output: {
         //filename: "[name].[contenthash].js",
         filename: "[name].js",
@@ -32,12 +33,6 @@ const config = {
                     name: "vendors",
                     chunks: "all",
                 },
-                views: {
-                    test: /[\\/]public[\\/]/,
-                    name: "views",
-                    chunks: "all",
-                    enforce: true
-                }
             },
         },
     },
