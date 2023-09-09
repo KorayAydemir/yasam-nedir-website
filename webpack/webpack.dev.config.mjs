@@ -5,9 +5,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const config = {
-    mode: 'development',
+    mode: "development",
     entry: { "yasam.nedir.front-end.app": "./src/client/index.mjs" },
-    devtool: "eval-source-map",
+    //devtool: "eval-source-map",
     output: {
         //filename: "[name].[contenthash].js",
         filename: "[name].js",
@@ -21,6 +21,10 @@ const config = {
                 use: {
                     loader: "babel-loader",
                 },
+            },
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader", "postcss-loader"],
             },
         ],
     },

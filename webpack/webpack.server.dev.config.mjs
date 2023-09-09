@@ -6,10 +6,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const config = {
-    mode: 'development',
-    entry: { 'yasam.nedir.back-end.app': "./src/server/index.mjs" },
+    mode: "development",
+    entry: { "yasam.nedir.back-end.app": "./src/server/index.mjs" },
     target: "node",
-    devtool: "eval-source-map",
+    //devtool: "eval-source-map",
     externalsPresets: { node: true },
     output: {
         //filename: "[name].[contenthash].js",
@@ -26,8 +26,16 @@ const config = {
                 },
             },
             {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader", "postcss-loader"],
+            },
+            {
+                test: /\.(png|jpg|gif)$/i,
+                type: "asset"
+            },
+            {
                 test: /\.ejs/,
-                use: 'raw-loader',
+                use: "raw-loader",
             },
         ],
     },
@@ -38,9 +46,9 @@ const config = {
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
-                conservativeCollapse: true
+                conservativeCollapse: true,
             },
-            inject: false
+            inject: false,
         }),
     ],
     optimization: {
@@ -56,12 +64,11 @@ const config = {
                     test: /[\\/]public[\\/]/,
                     name: "views",
                     chunks: "all",
-                    enforce: true
-                }
+                    enforce: true,
+                },
             },
         },
     },
-
 };
 
 export default config;

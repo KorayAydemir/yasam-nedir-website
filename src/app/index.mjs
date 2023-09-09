@@ -2,6 +2,7 @@ import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import Landing from "./infrastructure/views/landing/index.mjs";
 import Yasambilim from "./infrastructure/views/yasambilim/index.mjs";
+import '../css/index.css'
 
 const App = (props) => {
     const { serverSideProps } = props;

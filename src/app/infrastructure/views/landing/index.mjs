@@ -3,7 +3,7 @@ const Landing = (props) => {
     
     return (
         <>
-            <h1>Hello from Landing 👽</h1>
+            <h1 className="underline">Hello from Landing 👽</h1>
         </>
     );
 };
