@@ -4,7 +4,6 @@ const Landing = (props) => {
     return (
         <>
             <h1>Hello from Landing 👽</h1>
-            <h2>{ p?.data?.userName }</h2>
         </>
     );
 };

@@ -9,6 +9,7 @@ const config = {
     mode: 'development',
     entry: { 'yasam.nedir.back-end.app': "./src/server/index.mjs" },
     target: "node",
+    devtool: "eval-source-map",
     externalsPresets: { node: true },
     output: {
         //filename: "[name].[contenthash].js",
@@ -51,9 +52,9 @@ const config = {
                     name: "vendors",
                     chunks: "all",
                 },
-                app: {
-                    test: /[\\/]src[\\/]/,
-                    name: "app",
+                views: {
+                    test: /[\\/]public[\\/]/,
+                    name: "views",
                     chunks: "all",
                     enforce: true
                 }
