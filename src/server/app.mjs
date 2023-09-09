@@ -10,6 +10,7 @@ app.set("view engine", "ejs")
 app.set("views", 'build/views')
 
 app.use('/build', express.static('build') );
+app.use('/public', express.static('public') );
 
 app.get('*', router)
 
