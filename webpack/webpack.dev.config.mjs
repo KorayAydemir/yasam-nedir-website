@@ -40,6 +40,9 @@ const config = {
             },
         },
     },
+    watchOptions: {
+        ignored: /node_modules/,
+    },
 };
 
 export default config;
