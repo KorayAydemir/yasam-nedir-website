@@ -1,5 +1,15 @@
-export const routes = [
-    '/',
-    '/yasambilim',
-    '/evrim-kurami'
-]
+export const routes = {
+    '/': () => {
+        return {
+            title: 'mytitle',
+            description: 'mydesc'
+        }
+    },
+    '/yasambilim': ()=>{
+        return {}
+    },
+    '/evrim-kurami': ()=>{
+        return {}
+    },
+}
+

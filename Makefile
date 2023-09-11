@@ -4,4 +4,4 @@ start-dev-server:
 
 start-dev-client:
 	@echo "Starting dev client..."
-	@webpack --config ./webpack/webpack.dev.config.mjs/ --watch
+	#@webpack --config ./webpack/webpack.dev.config.mjs/ --watch

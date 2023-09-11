@@ -4,8 +4,7 @@ import { hydrateRoot } from "react-dom/client";
 
 (() => {
     const domNode = document.getElementById("root");
-    console.log('aaa')
-    
+
     hydrateRoot(
         domNode,
         <BrowserRouter>

@@ -11,9 +11,9 @@ const App = (props) => {
 
     return (
         <Routes>
-            <Route element={ <Layout data={ serverSideProps }/> } >
-                <Route path="/"           element={ <Landing    data={ serverSideProps }/> } />
-                <Route path="/yasambilim" element={ <Yasambilim data={ serverSideProps }/> } />
+            <Route element={ <Layout serverSideProps={ serverSideProps }/> } >
+                <Route path="/"           element={ <Landing    serverSideProps={ serverSideProps }/> } />
+                <Route path="/yasambilim" element={ <Yasambilim serverSideProps={ serverSideProps }/> } />
             </Route>
         </Routes>
     );
