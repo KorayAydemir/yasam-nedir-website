@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "yasam nedir website",
   "scripts": {
-    "dev": "concurrently \"make start-dev-server\" \"make start-dev-client\"",
+    "dev": "concurrently \"make start-dev-server\"",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "test-coverage": "NODE_OPTIONS=--experimental-vm-modules jest --watch --coverage",
     "serve": "webpack serve --hot --mode development --config=./webpack/webpack.dev.config.js"
@@ -13,10 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.1.2",
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {

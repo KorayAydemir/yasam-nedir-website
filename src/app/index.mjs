@@ -6,14 +6,12 @@ import Landing      from "./infrastructure/views/landing/index.mjs";
 import Yasambilim   from "./infrastructure/views/yasambilim/index.mjs";
 import Layout       from "./infrastructure/layout/index.mjs";
 
-const App = (props) => {
-    const { serverSideProps } = props;
-
+const App = () => {
     return (
         <Routes>
-            <Route element={ <Layout serverSideProps={ serverSideProps }/> } >
-                <Route path="/"           element={ <Landing    serverSideProps={ serverSideProps }/> } />
-                <Route path="/yasambilim" element={ <Yasambilim serverSideProps={ serverSideProps }/> } />
+            <Route element={ <Layout /> } >
+                <Route path="/"           element={ <Landing />    } />
+                <Route path="/yasambilim" element={ <Yasambilim /> } />
             </Route>
         </Routes>
     );

@@ -1,6 +1,4 @@
-const Landing = (props) => {
-    const p = props;
-    
+const Landing = () => {
     return (
         <>
             <h1 className="underline">Hello from Landing 👽</h1>

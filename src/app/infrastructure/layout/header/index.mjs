@@ -3,7 +3,7 @@ import Sections     from "./components/sections.mjs";
 
 const Header = () => {
     return (
-        <header className="">
+        <header>
             <Banner />
             <Sections />
             <h1>Header</h1>
