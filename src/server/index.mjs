@@ -1,5 +1,13 @@
-import app from './app.mjs'
+import 'dotenv/config'
 
-const port = process.env.PORT || 3000
+import Setup from "./setup/index.mjs"
 
-app.listen(port);
+Setup.createServerApp()
+
+Setup.setViewEngine()
+
+Setup.setAppRouter()
+
+Setup.setAppPort()
+
+Setup.startServerApp()

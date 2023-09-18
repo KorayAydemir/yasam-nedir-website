@@ -1,12 +1,10 @@
 import { useSelector } from "react-redux";
 
 const Banner = () => {
-    const r = useSelector(state => ({
-        title: state.title
-    }) );
+    const data = useSelector(state => state.layout.data[0]);
 
     return (
-        <h1 className="text-5xl text-center">{r.title}</h1>
+        <h1 className="text-5xl text-center">{data._id}</h1>
     );
 }
 

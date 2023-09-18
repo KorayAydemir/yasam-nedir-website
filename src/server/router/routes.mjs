@@ -1,8 +1,12 @@
-export const routes = {
-    '/': () => {
+import landing from "../api/domain/landing/index.mjs"
+
+const routes = {
+    '/': async () => {
+        const data = await landing.getPageData();
         return {
-            title: 'mytitle',
-            description: 'mydesc'
+            layout: {
+                data
+            }
         }
     },
     '/yasambilim': ()=>{
@@ -13,3 +17,4 @@ export const routes = {
     },
 }
 
+export default routes;

@@ -1,48 +1,20 @@
-import { renderToString }   from "react-dom/server";
+import express                   from "express"
+import appControllers            from "../api/controller/index.mjs"
+import { initialRequestHandler } from "../services/handlers.mjs"
 
-import App                  from "../../app/index.mjs";
-import { routes }           from "./routes.mjs";
+const expressRouter = express.Router();
 
-import { matchPath }        from "react-router-dom";
-import { StaticRouter }     from "react-router-dom/server.js";
-import { Provider }             from "react-redux";
-import { setupStore } from "../../store/index.mjs";
+appControllers(expressRouter)
 
-const fetchRouteData = (path) => {
-    return routes[path]();
-};
-
-const handleRender = () =>{
-}
-
-
-export default function router(req, res) {
-    const match = Object.keys(routes).reduce(
-        (acc, route) => matchPath(req.url, route) || acc,
-        null
-    );
-
-    if (!match) {
-        res.status(404).send("<h1>page not found</h1>");
-        return;
+expressRouter.get('*', (req, res) => {
+    try {
+        initialRequestHandler(req, res)
+    } catch(e) {
+        console.error(
+            e,
+            "Couldn't handle the initial request."
+        )
     }
+})
 
-    const serverSideProps = fetchRouteData(match.pathname);
-
-    const store = setupStore(serverSideProps);
-
-    const html = renderToString(
-        <Provider store={store}>
-            <StaticRouter location={req.url}>
-                <App />
-            </StaticRouter>
-        </Provider>
-    );
-
-    const preloadedState = store.getState();
-
-    res.render("index", {
-        html,
-        preloadedState,
-    });
-}
+export default expressRouter
