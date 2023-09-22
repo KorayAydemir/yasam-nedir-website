@@ -2,7 +2,7 @@ import { createReactApp }   from "./react-app.mjs";
 import routes               from "../router/routes.mjs";
 import { matchPath }        from "react-router-dom";
 import { setupStore }       from "../../store/index.mjs";
-import { getLanding, getRunningQueriesThunk } from "../../client/fetcher.mjs";
+import { getLanding, getRunningQueriesThunk } from "../../fetch/index.mjs";
 
 const fetchRouteData = async (path) => {
     return await routes[path]();

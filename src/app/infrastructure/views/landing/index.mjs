@@ -1,4 +1,4 @@
-import { useGetLandingQuery } from "../../../../client/fetcher.mjs";
+import { useGetLandingQuery } from "../../../../fetch/index.mjs";
 //*[_type in ["tooltips"]]{kelimeler}
 
 import { useSelector } from "react-redux";
