@@ -8,7 +8,6 @@ class Setup {
 
     createServerApp() {
         try {
-            console.log('Creating server app')
             this.app = express()
             this.app.use('/build', express.static('build') );
             this.app.use('/public', express.static('public') );
@@ -21,14 +20,12 @@ class Setup {
     }
 
     setViewEngine() {
-        console.log('Setting view engine')
         this.app.engine('ejs', ejs.__express)
         this.app.set("view engine", "ejs")
         this.app.set("views", 'build/views')
     }
 
     setAppRouter() {
-        console.log('Setting app router')
         this.app.use('/', router)
     }
 

@@ -13,7 +13,5 @@ export const createReactApp = async (req, store) => {
         </Provider>
     );
 
-    return {
-        html
-    };
+    return html
 }
