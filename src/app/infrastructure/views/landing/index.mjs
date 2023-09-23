@@ -4,7 +4,7 @@ import { useUniversalFetch } from "../../../../fetch/useUniversalFetch.mjs";
 const Landing = () => {
     const data = useUniversalFetch();
 
-    console.log('landing data', data)
+    console.log('landing data', data);
 
     return (
         <>
