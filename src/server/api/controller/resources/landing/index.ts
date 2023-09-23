@@ -1,8 +1,10 @@
-const Landing = (router) => {
-    router.route('/api', async (req, res) => {
-    });
+import { Router } from "express";
 
-    return router;
+const Landing = (_router: Router) => {
+    //router.route('/api', async (req: Express.Request, res: Express.Response) => {
+    //});
+
+    //return router;
 }
 
 export default Landing

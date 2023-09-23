@@ -1,4 +1,5 @@
 class Landing {
+    name: string;
     constructor() {
         this.name = 'Landing';
     }

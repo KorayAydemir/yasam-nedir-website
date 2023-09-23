@@ -1,5 +1,6 @@
+import { Router } from 'express';
 import * as Resources from './resources/index'
 
-export default (router) => {
+export default (router: Router) => {
     Resources.Landing(router);
 }

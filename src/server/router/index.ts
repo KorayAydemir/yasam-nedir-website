@@ -1,8 +1,8 @@
-import express                   from "express"
+import express, { Router }                   from "express"
 import appControllers            from "../api/controller/index"
 import { initialRequestHandler } from "../services/handlers"
 
-const expressRouter = express.Router();
+const expressRouter: Router = express.Router();
 
 appControllers(expressRouter)
 

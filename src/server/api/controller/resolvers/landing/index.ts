@@ -1,5 +1,7 @@
-const Landing = (router) => {
-    router.get('/', async (req, res) => {
+import { Router } from "express";
+
+const Landing = (router: Router) => {
+    router.get('/', async (_req, _res) => {
     });
 
     return router;
