@@ -1,17 +1,15 @@
-import { useGetLandingQuery } from "../../../../fetch/index.mjs";
-//*[_type in ["tooltips"]]{kelimeler}
-
-import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { useUniversalFetch } from "../../../../fetch/useUniversalFetch.mjs";
 
 const Landing = () => {
-    const { data, error, isLoading } = useGetLandingQuery();
-    console.log('smoldata',data, error, isLoading);
-    const allData = useSelector(state => state);
-    console.log('allData',allData)
+    const data = useUniversalFetch();
+
+    console.log('landing data', data)
 
     return (
         <>
             <h1 className="underline">Hello from Landing 👽</h1>
+            <Link to="/yasambilim">GOTO yasambilim</Link>
         </>
     );
 };

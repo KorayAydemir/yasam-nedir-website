@@ -23,15 +23,13 @@ export const initialRequestHandler = async (req, res) => {
 
     const store = setupStore(serverSideProps);
 
-    store.dispatch(getLanding.initiate())
+    const html = await createReactApp(req, store);
 
-    const serverSideData = await Promise.all(store.dispatch(getRunningQueriesThunk()));
+    const serverData = await Promise.all(store.dispatch(getRunningQueriesThunk()));
+    
+    console.log('=== server data ===', serverData)
 
     const preloadedState = store.getState();
-
-    console.log(JSON.stringify(serverSideData))
-
-    const html = await createReactApp(req, store);
 
     res.render("index", {
         html,
