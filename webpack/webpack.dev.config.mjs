@@ -24,7 +24,7 @@ const nodeConfig = {
         rules: [
             {
                 test: /\.(?:js|mjs)$/,
-                exclude: /node_modules/,
+                include: path.resolve(__dirname, '../', 'src'),
                 use: {
                     loader: "babel-loader",
                 },
@@ -90,7 +90,7 @@ const webConfig = {
         rules: [
             {
                 test: /\.(?:js|mjs)$/,
-                exclude: /node_modules/,
+                include: path.resolve(__dirname, '../', 'src'),
                 use: {
                     loader: "babel-loader",
                 },
