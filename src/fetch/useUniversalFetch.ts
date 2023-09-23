@@ -1,5 +1,5 @@
 import { useStore } from "react-redux";
-import { useGetLandingQuery, getLanding } from "./index.mjs";
+import { useGetLandingQuery, getLanding } from "./index";
 
 export const useUniversalFetch = (url, options) => {
     const store = useStore();

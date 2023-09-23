@@ -1,4 +1,4 @@
-import Header from './header/index.mjs';
+import Header from './header/index';
 import { Outlet } from 'react-router-dom';
 const Layout = () => {
     return (

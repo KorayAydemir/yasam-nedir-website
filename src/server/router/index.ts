@@ -1,6 +1,6 @@
 import express                   from "express"
-import appControllers            from "../api/controller/index.mjs"
-import { initialRequestHandler } from "../services/handlers.mjs"
+import appControllers            from "../api/controller/index"
+import { initialRequestHandler } from "../services/handlers"
 
 const expressRouter = express.Router();
 

@@ -7,9 +7,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const nodeConfig = {
+    resolve: {
+        extensions: [".ts", ".tsx", ".js", ".jsx"],
+    },
     mode: "development",
     entry: { 
-        "yasam.nedir.back-end.app": "./src/server/index.mjs",
+        "yasam.nedir.back-end.app": "./src/server/index.ts",
     },
     target: "node",
     externalsPresets: { node: true },
@@ -23,7 +26,7 @@ const nodeConfig = {
     module: {
         rules: [
             {
-                test: /\.(?:js|mjs)$/,
+                test: /\.(?:js|mjs|ts|tsx)$/,
                 include: path.resolve(__dirname, '../', 'src'),
                 use: {
                     loader: "babel-loader",
@@ -76,9 +79,12 @@ const nodeConfig = {
 };
 
 const webConfig = {
+    resolve: {
+        extensions: [".ts", ".tsx", ".js", ".jsx"],
+    },
     mode: "development",
     entry: { 
-        "yasam.nedir.front-end.app": "./src/client/index.mjs"
+        "yasam.nedir.front-end.app": "./src/client/index.tsx"
     },
     //devtool: "eval-source-map",
     output: {
@@ -89,7 +95,7 @@ const webConfig = {
     module: {
         rules: [
             {
-                test: /\.(?:js|mjs)$/,
+                test: /\.(?:js|mjs|ts|tsx)$/,
                 include: path.resolve(__dirname, '../', 'src'),
                 use: {
                     loader: "babel-loader",

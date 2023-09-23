@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import Setup from "./setup/index.mjs"
+import Setup from "./setup/index"
 
 Setup.createServerApp()
 

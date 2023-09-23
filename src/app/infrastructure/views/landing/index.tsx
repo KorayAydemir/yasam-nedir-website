@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useUniversalFetch } from "../../../../fetch/useUniversalFetch.mjs";
+import { useUniversalFetch } from "../../../../fetch/useUniversalFetch";
 
 const Landing = () => {
     const data = useUniversalFetch();

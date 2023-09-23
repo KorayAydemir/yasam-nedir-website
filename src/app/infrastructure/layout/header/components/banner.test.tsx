@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import Banner from "./banner.mjs";
+import Banner from "./banner";
 
 describe("Layout > Header > Banner", () => {
     it("should render with the title", () => {

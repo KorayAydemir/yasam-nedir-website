@@ -1,5 +1,5 @@
 import renderer from "react-test-renderer"
-import Landing from "./index.mjs"
+import Landing from "./index"
 
 it('should render', () => {
     const comp = renderer.create(<Landing />)

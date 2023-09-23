@@ -1,6 +1,6 @@
 import express from "express"
 import ejs from 'ejs';
-import router from "../router/index.mjs"
+import router from "../router/index"
 
 class Setup {
     constructor() {

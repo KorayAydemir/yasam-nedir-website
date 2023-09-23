@@ -1,5 +1,5 @@
-import Banner       from "./components/banner.mjs";
-import Sections     from "./components/sections.mjs";
+import Banner       from "./components/banner";
+import Sections     from "./components/sections";
 
 const Header = () => {
     return (

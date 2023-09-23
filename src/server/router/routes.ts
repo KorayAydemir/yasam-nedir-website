@@ -1,4 +1,4 @@
-import landing from "../api/domain/landing/index.mjs"
+import landing from "../api/domain/landing/index"
 
 const routes = {
     '/': async () => {

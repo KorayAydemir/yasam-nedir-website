@@ -2,9 +2,9 @@ import '../css/index.css'
 import { Route } from 'react-router-dom'
 import { Routes } from 'react-router-dom'
 
-import Landing from './infrastructure/views/landing/index.mjs'
-import Yasambilim from './infrastructure/views/yasambilim/index.mjs'
-import Layout from './infrastructure/layout/index.mjs'
+import Landing from './infrastructure/views/landing/index'
+import Yasambilim from './infrastructure/views/yasambilim/index'
+import Layout from './infrastructure/layout/index'
 
 const App = () => {
     return (
