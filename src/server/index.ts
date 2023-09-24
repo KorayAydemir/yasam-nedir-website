@@ -1,12 +1,12 @@
-import 'dotenv/config'
-import Setup from "./setup/index"
+import "dotenv/config";
+import Setup from "./setup/index";
 
-Setup.createServerApp()
+Setup.createServerApp();
 
-Setup.setViewEngine()
+Setup.setViewEngine();
 
-Setup.setAppRouter()
+Setup.setAppRouter();
 
-Setup.setAppPort()
+Setup.setAppPort();
 
-Setup.startServerApp()
+Setup.startServerApp();

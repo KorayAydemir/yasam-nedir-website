@@ -12,24 +12,21 @@ const yasambilimSlice = createSlice({
     name: "yasambilim",
     initialState,
     reducers: {
-        yasambilimLoading: (state) => {
+        yasambilimLoading: state => {
             state.yasambilim.yasambilimLoading = true;
-        }
-        ,
+        },
         yasambilimSuccess: (state, action) => {
             state.yasambilim.yasambilimLoading = false;
             state.yasambilim.yasambilim = action.payload;
-        }
-        ,
+        },
         yasambilimError: (state, action) => {
             state.yasambilim.yasambilimLoading = false;
             state.yasambilim.yasambilimError = action.payload;
-        }
-        ,
+        },
     },
 });
 
-export const { yasambilimLoading, yasambilimSuccess, yasambilimError } = yasambilimSlice.actions;
+export const { yasambilimLoading, yasambilimSuccess, yasambilimError } =
+    yasambilimSlice.actions;
 
 export default yasambilimSlice.reducer;
-

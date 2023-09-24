@@ -1,20 +1,20 @@
-import landing from "../api/domain/landing/index"
+import landing from "../api/domain/landing/index";
 
 const routes = {
-    '/': async () => {
+    "/": async () => {
         const data = await landing.getPageData();
         return {
             layout: {
-                data
-            }
-        }
+                data,
+            },
+        };
     },
-    '/yasambilim': ()=>{
-        return {}
+    "/yasambilim": () => {
+        return {};
     },
-    '/evrim-kurami': ()=>{
-        return {}
+    "/evrim-kurami": () => {
+        return {};
     },
-}
+};
 
 export default routes;

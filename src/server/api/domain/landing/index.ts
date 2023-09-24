@@ -1,7 +1,7 @@
 class Landing {
     name: string;
     constructor() {
-        this.name = 'Landing';
+        this.name = "Landing";
     }
 
     async getPageData() {

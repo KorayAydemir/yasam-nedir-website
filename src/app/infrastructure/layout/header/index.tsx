@@ -1,5 +1,5 @@
-import Banner       from "./components/banner";
-import Sections     from "./components/sections";
+import Banner from "./components/banner";
+import Sections from "./components/sections";
 
 const Header = () => {
     return (
@@ -11,4 +11,4 @@ const Header = () => {
     );
 };
 
-export default Header
+export default Header;

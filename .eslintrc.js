@@ -9,6 +9,7 @@ module.exports = {
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
+        "plugin:react/jsx-runtime"
     ],
     overrides: [
         {
@@ -27,11 +28,14 @@ module.exports = {
         sourceType: "module",
     },
     rules: {
-        "react/react-in-jsx-scope": "off",
         "@typescript-eslint/no-unused-vars": [
             "error",
-            { argsIgnorePattern: "^_" },
-            { varsIgnorePattern: "^_" }
+            { argsIgnorePattern: "^_" }
         ],
     },
+    "settings": {
+        "react": {
+            "version": "18",
+        }
+    }
 };

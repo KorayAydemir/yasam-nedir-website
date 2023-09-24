@@ -6,8 +6,7 @@ const Sections = () => {
             <li>Denemeler</li>
             <li>Neden?</li>
         </ul>
-    )
-
-}
+    );
+};
 
 export default Sections;

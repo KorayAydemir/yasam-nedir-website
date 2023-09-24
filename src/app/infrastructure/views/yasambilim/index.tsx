@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const Yasambilim = () => {
     return (
@@ -6,7 +6,7 @@ const Yasambilim = () => {
             <h1>Yasambilim</h1>
             <Link to="/">GOTO Landing</Link>
         </div>
-    )
-}
+    );
+};
 
-export default Yasambilim
+export default Yasambilim;

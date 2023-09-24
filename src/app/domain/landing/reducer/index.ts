@@ -1,16 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    data: {}
+    data: {},
 };
 
 const landingSlice = createSlice({
     name: "landing",
     initialState,
-    reducers: {}
+    reducers: {},
 });
 
 //export const { yasambilimLoading } = yasambilimSlice.actions;
 
 export default landingSlice.reducer;
-

@@ -2,10 +2,10 @@
     "tabWidth": 4,
     "bracketSameLine": true,
     "trailingComma": "es5",
-    "arrowParens": avoid,
+    "arrowParens": "avoid",
     "overrides": [
         {
-            "files": ".prettierrc", ".babelrc",
+            "files": [".prettierrc", ".babelrc"],
             "options": { "parser": "json" }
         }
     ]

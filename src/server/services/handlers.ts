@@ -1,10 +1,13 @@
-import { createReactApp }   from "./react-app";
-import routes               from "../router/routes";
-import { matchPath }        from "react-router-dom";
-import { setupStore }       from "../../store/index";
+import { createReactApp } from "./react-app";
+import routes from "../router/routes";
+import { matchPath } from "react-router-dom";
+import { setupStore } from "../../store/index";
 import { getRunningQueriesThunk } from "../../fetch/index";
 import { Request, Response } from "express";
-import { AnyAsyncThunk, PendingActionFromAsyncThunk } from "@reduxjs/toolkit/dist/matchers";
+import {
+    AnyAsyncThunk,
+    PendingActionFromAsyncThunk,
+} from "@reduxjs/toolkit/dist/matchers";
 
 /*const fetchRouteData = async (path) => {
     return await routes[path]();
@@ -21,13 +24,17 @@ export const initialRequestHandler = async (req: Request, res: Response) => {
         return;
     }*/
 
-    //const serverSideProps = await fetchRouteData(match.pathname); //not useful anymore 
+    //const serverSideProps = await fetchRouteData(match.pathname); //not useful anymore
 
     const store = setupStore();
 
     const html = await createReactApp(req, store);
 
-    const serverData = await Promise.all(store.dispatch<PendingActionFromAsyncThunk<AnyAsyncThunk>>(getRunningQueriesThunk()));
+    const serverData = await Promise.all(
+        store.dispatch<PendingActionFromAsyncThunk<AnyAsyncThunk>>(
+            getRunningQueriesThunk()
+        )
+    );
 
     const preloadedState = store.getState();
 
@@ -35,4 +42,4 @@ export const initialRequestHandler = async (req: Request, res: Response) => {
         html,
         preloadedState,
     });
-}
+};

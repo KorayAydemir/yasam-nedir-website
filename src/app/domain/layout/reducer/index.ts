@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     layout: {
-        data: {}
-    }
+        data: {},
+    },
 };
 
 const layoutSlice = createSlice({

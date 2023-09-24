@@ -2,7 +2,7 @@ import App from "../app/index";
 import { BrowserRouter } from "react-router-dom";
 import { hydrateRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { setupStore } from "../store/index"
+import { setupStore } from "../store/index";
 
 (() => {
     const domNode = document.getElementById("root");

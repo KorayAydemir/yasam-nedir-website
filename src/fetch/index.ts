@@ -8,7 +8,7 @@ export const sanityClient = createClient({
     apiVersion: "2021-03-25",
 });
 
-const sanityClientFetcher = (query) => {
+const sanityClientFetcher = (query: string) => {
     const data = sanityClient.fetch(query);
     return { data };
 };
@@ -16,7 +16,7 @@ const sanityClientFetcher = (query) => {
 export const rtkSanityApi = createApi({
     reducerPath: "sanityApi",
     baseQuery: sanityClientFetcher,
-    endpoints: (build) => ({
+    endpoints: build => ({
         getLanding: build.query({
             queryFn: () => sanityClientFetcher(`*[_type in ["settings"]]`),
         }),
