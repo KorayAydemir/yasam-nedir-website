@@ -4,13 +4,12 @@ module.exports = {
         es2021: true,
         node: true,
     },
-    plugins: ["@typescript-eslint", "react"],
     extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
-        "plugin:react/jsx-runtime"
     ],
+    ignorePatterns: ["build", "coverage", "node_modules", "public"],
     overrides: [
         {
             env: {
@@ -27,15 +26,17 @@ module.exports = {
         ecmaVersion: "latest",
         sourceType: "module",
     },
+    plugins: ["@typescript-eslint", "react"],
     rules: {
+        "react/react-in-jsx-scope": "off",
         "@typescript-eslint/no-unused-vars": [
             "error",
-            { argsIgnorePattern: "^_" }
+            { argsIgnorePattern: "^_" },
         ],
     },
-    "settings": {
-        "react": {
-            "version": "18",
-        }
-    }
+    settings: {
+        react: {
+            version: "18",
+        },
+    },
 };

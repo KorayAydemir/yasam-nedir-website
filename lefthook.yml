@@ -3,20 +3,23 @@
 #   Refer for explanation to following link:
 #   https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
 #
-# pre-push:
-#   commands:
-#     packages-audit:
-#       tags: frontend security
-#       run: yarn audit
+ pre-push:
+   commands:
+     packages-audit:
+       tags: frontend security
+       run: pnpm audit
  pre-commit:
    parallel: true
    commands:
      eslint:
        glob: "*.{js,ts,jsx,tsx}"
-       run: pnpm eslint ./src
+       run: pnpm lint
      prettier:
        glob: "*.{js,ts,jsx,tsx}"
-       run: pnpm prettier {staged_files}
+       run: pnpm prettier {staged_files} --write
+     typescript:
+       glob: "*.{js,ts,jsx,tsx}"
+       run: pnpm type-check
 #   scripts:
 #     "hello.js":
 #       runner: node

@@ -1,6 +1,6 @@
 import { createReactApp } from "./react-app";
-import routes from "../router/routes";
-import { matchPath } from "react-router-dom";
+//import routes from "../router/routes";
+//import { matchPath } from "react-router-dom";
 import { setupStore } from "../../store/index";
 import { getRunningQueriesThunk } from "../../fetch/index";
 import { Request, Response } from "express";
@@ -35,6 +35,7 @@ export const initialRequestHandler = async (req: Request, res: Response) => {
             getRunningQueriesThunk()
         )
     );
+    console.log("==== SERVER DATA ====\n", serverData, "\n=====");
 
     const preloadedState = store.getState();
 

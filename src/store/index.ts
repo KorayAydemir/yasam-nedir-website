@@ -1,9 +1,4 @@
-import {
-    Store,
-    StoreCreator,
-    StoreEnhancer,
-    configureStore,
-} from "@reduxjs/toolkit";
+import { Store, configureStore } from "@reduxjs/toolkit";
 import { rootReducer } from "./reducers/index";
 import { rtkSanityApi } from "../fetch/index";
 

@@ -1,9 +1,10 @@
 import { useStore } from "react-redux";
-import { useGetLandingQuery, getLanding } from "./index";
+import { getLanding } from "./index";
 
-export const useUniversalFetch = (url, options) => {
+export const useUniversalFetch = (): object => {
     const store = useStore();
-    const data = store.dispatch(getLanding.initiate());
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const data = store.dispatch<any>(getLanding.initiate(""));
 
     //const { data, error, isLoading } = useGetLandingQuery();
 
