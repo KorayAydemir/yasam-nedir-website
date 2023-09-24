@@ -8,5 +8,8 @@
             "files": [".prettierrc", ".babelrc"],
             "options": { "parser": "json" }
         }
-    ]
+    ],
+    "plugins": ["prettier-plugin-tailwindcss"],
+    "tailwindConfig": "./tailwind.config.cjs",
+    "tailwindFunctions": ["tw"]
 }

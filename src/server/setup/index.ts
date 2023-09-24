@@ -1,7 +1,8 @@
 import express, { Application } from "express";
 import ejs from "ejs";
 import router from "../router/index";
-
+// taking notes in codebase lul
+// https://kentcdodds.com/blog/get-a-catch-block-error-message-with-typescript
 class Setup {
     private app: Application;
     constructor() {
