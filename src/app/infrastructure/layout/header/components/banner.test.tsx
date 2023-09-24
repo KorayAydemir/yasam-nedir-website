@@ -1,3 +1,4 @@
+test.skip("For now", () => {});
 /*import { render } from "@testing-library/react";
 import Banner from "./banner";
 

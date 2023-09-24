@@ -8,6 +8,8 @@
      packages-audit:
        tags: frontend security
        run: pnpm audit
+     tests:
+       run: pnpm test -- --coverage
  pre-commit:
    parallel: true
    commands:

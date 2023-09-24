@@ -8,7 +8,6 @@
     "type-check:watch": "pnpm run type-check -- --watch",
     "dev": "concurrently \"make start-dev-server\"",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
-    "test-coverage": "NODE_OPTIONS=--experimental-vm-modules jest --watch --coverage",
     "serve": "webpack serve --hot --mode development --config=./webpack/webpack.dev.config.js"
   },
   "private": true,
@@ -64,6 +63,7 @@
     "react-test-renderer": "^18.2.0",
     "style-loader": "^3.3.3",
     "tailwindcss": "^3.3.3",
+    "ts-jest": "^29.1.1",
     "typescript": "^5.2.2",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",

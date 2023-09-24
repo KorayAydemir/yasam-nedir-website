@@ -1,9 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render 1`] = `
-<h1
-  className="underline"
->
-  Hello from Landing 👽
-</h1>
+exports[`Views > Landing should render 1`] = `
+[
+  <h1
+    className="underline"
+  >
+    Hello from Landing 👽
+  </h1>,
+  <a
+    href="/yasambilim"
+    onClick={[Function]}
+  >
+    GOTO yasambilim
+  </a>,
+]
 `;

@@ -1,15 +1,16 @@
 module.exports = {
     testEnvironment: "jsdom",
-    moduleFileExtensions: ["js", "mjs", "cjs"],
+    moduleFileExtensions: ["js", "mjs", "cjs", "ts", "tsx"],
     moduleDirectories: ["node_modules"],
     testMatch: [ 
-      '**/?(*.)(test).mjs', '**/?(*.)(spec|test).mjs' 
+      '**/?(*.)(spec|test).(ts|tsx)' 
     ],
 
     transform: {
-        "^.+\\.mjs$": "babel-jest",
-        "^.+\\.cjs$": "babel-jest",
-        "^.+\\.js$" : "babel-jest",
+        // does not work with babel-jest for some reason
+        "^.+\\.tsx$": "ts-jest",
+        "^.+\\.ts$" : "ts-jest",
+        "^.+\\.cjs$": "ts-jest",
     },
 
     testPathIgnorePatterns: [
