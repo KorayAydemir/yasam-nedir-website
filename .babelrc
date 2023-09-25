@@ -10,17 +10,5 @@
         ],
         ["@babel/preset-react", {"runtime": "automatic"}],
         ["@babel/preset-typescript", {isTSX: true, allExtensions: true}]
-    ],
-    "plugins": [
-        ["babel-plugin-module-resolver",
-            {
-                "alias": {
-                    "@app": "./src/app",
-                    "@app.index": "./src/app/index.mjs",
-                    "@services": "./src/app/services",
-                    "@styles": "./src/styles"
-                }
-            }
-        ]
     ]
 }

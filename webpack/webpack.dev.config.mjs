@@ -41,10 +41,16 @@ const nodeConfig = {
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
+                type: 'asset',
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 10 * 1024 // Inline images under 10KB
+                    }
+                },
                 generator: {
-                    filename: '../images/[name]-[hash][ext]'
-                }
+                    emit: false
+                },
+                exclude: /node_modules/,
             },
             {
                 test: /\.ejs/,
@@ -116,7 +122,8 @@ const webConfig = {
                 type: 'asset/resource',
                 generator: {
                     filename: '../images/[name]-[hash][ext]'
-                }
+                },
+                exclude: /node_modules/,
             },
         ],
     },
