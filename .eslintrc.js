@@ -27,6 +27,7 @@ module.exports = {
             plugins: ["jest"],
             extends: ["plugin:jest/all", "plugin:jest-dom/recommended"],
             //rules: { "jest/prefer-expect-assertions": "off" },
+            rules: { "jest/require-top-level-describe": "off" },
         },
         {
             files: ["src/server/**/*.ts", "src/server/**/*.tsx"],

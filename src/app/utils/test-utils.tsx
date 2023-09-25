@@ -1,6 +1,7 @@
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { setupStore } from "../../store";
+import "@testing-library/jest-dom";
 
 export const AllProviders = ({
     children,

@@ -6,12 +6,14 @@ import webpackNodeExternals from "webpack-node-externals";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const ASSET_PATH = process.env.ASSET_PATH || "../build/images/";
+
 const nodeConfig = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"],
     },
     mode: "development",
-    entry: { 
+    entry: {
         "yasam.nedir.back-end.app": "./src/server/index.ts",
     },
     target: "node",
@@ -22,6 +24,7 @@ const nodeConfig = {
         //filename: "[name].[contenthash].js",
         filename: "[name].js",
         path: path.resolve(__dirname, "../build/server"),
+        publicPath: ASSET_PATH,
     },
     module: {
         rules: [
@@ -37,8 +40,11 @@ const nodeConfig = {
                 use: ["style-loader", "css-loader", "postcss-loader"],
             },
             {
-                test: /\.(png|jpg|gif)$/i,
-                type: "asset"
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: '../images/[name]-[hash][ext]'
+                }
             },
             {
                 test: /\.ejs/,
@@ -83,7 +89,7 @@ const webConfig = {
         extensions: [".ts", ".tsx", ".js", ".jsx"],
     },
     mode: "development",
-    entry: { 
+    entry: {
         "yasam.nedir.front-end.app": "./src/client/index.tsx"
     },
     //devtool: "eval-source-map",
@@ -106,8 +112,11 @@ const webConfig = {
                 use: ["style-loader", "css-loader", "postcss-loader"],
             },
             {
-                test: /\.(png|jpg|gif)$/i,
-                type: "asset"
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: '../images/[name]-[hash][ext]'
+                }
             },
         ],
     },
