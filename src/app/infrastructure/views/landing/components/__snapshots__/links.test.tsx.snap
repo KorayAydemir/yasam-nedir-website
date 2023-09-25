@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test 1`] = `
+[
+  <a
+    href="/yasambilim"
+    onClick={[Function]}
+  >
+    Yaşam Bilim
+  </a>,
+  <a
+    href="/evrim-kurami"
+    onClick={[Function]}
+  >
+    Evrim Kuramı
+  </a>,
+  <a
+    href="/denemeler"
+    onClick={[Function]}
+  >
+    Denemeler
+  </a>,
+]
+`;

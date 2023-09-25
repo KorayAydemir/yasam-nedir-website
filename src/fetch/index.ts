@@ -17,6 +17,9 @@ export const rtkSanityApi = createApi({
     reducerPath: "sanityApi",
     baseQuery: sanityClientFetcher,
     endpoints: build => ({
+        getSettings: build.query({
+            queryFn: () => sanityClientFetcher(`*[_type in ["settings"]]`),
+        }),
         getLanding: build.query({
             queryFn: () => sanityClientFetcher(`*[_type in ["settings"]]`),
         }),
