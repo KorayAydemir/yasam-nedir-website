@@ -3,19 +3,13 @@ import { BlockAnnotationProps, SchemaTypeDefinition } from "sanity";
 
 import getYouTubeId from "get-youtube-id";
 
-const IndentIcon = () => (
-    "|->"
-);
+const IndentIcon = () => "|->";
 
 const Indent = ({ children }: React.PropsWithChildren) => {
-    return (
-        <p style={{ marginLeft: "2em" }}>
-            {children}
-        </p>
-    );
-}
+    return <p style={{ marginLeft: "2em" }}>{children}</p>;
+};
 
-const Preview = (props: {url: string}): ReactNode => {
+const Preview = (props: { url: string }): ReactNode => {
     const { url } = props;
     const id = getYouTubeId(url);
     const formattedUrl = `https://www.youtube.com/embed/${id}`;
@@ -76,17 +70,18 @@ const fontSizeIcon = () => (
     </span>
 );
 
-const fontStyleRenderer: ComponentType<BlockAnnotationProps> = (props) => {
+const fontStyleRenderer: ComponentType<BlockAnnotationProps> = props => {
     return (
         <div
             style={{
                 fontSize: `${props.value.pixels}px`,
-                fontFamily: props.value.fontFamily ? `${props.value.fontFamily}` : "Segoe UI",
-            }}
-        >
+                fontFamily: props.value.fontFamily
+                    ? `${props.value.fontFamily}`
+                    : "Segoe UI",
+            }}>
             {props.renderDefault(props)}
         </div>
-    )
+    );
 };
 
 export const schemaTypes: SchemaTypeDefinition[] = [
@@ -463,7 +458,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
                 subtitle: "alignment",
             },
             prepare(selection) {
-                const { title } = selection
+                const { title } = selection;
                 let { subtitle } = selection;
                 if (subtitle === "center") {
                     subtitle = "Ortalanmış";
@@ -1231,7 +1226,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
                                     title: "Indented",
                                     value: "indented",
                                     icon: IndentIcon,
-                                    component: Indent
+                                    component: Indent,
                                 },
                             ],
                         },
@@ -1389,6 +1384,6 @@ export const schemaTypes: SchemaTypeDefinition[] = [
         },
         components: {
             preview: Preview,
-        }
+        },
     },
 ];

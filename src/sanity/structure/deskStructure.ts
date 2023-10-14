@@ -1,43 +1,23 @@
-import S from "@sanity/desk-tool/structure-builder";
-import Iframe from "sanity-plugin-iframe-pane";
-import sanityClient from "@sanity/client";
+import { StructureBuilder } from "sanity/desk";
+import { createSanityClient } from "../../fetch/index";
 
 const ignoredDocTypes = ["comment"];
-const restOfTheDocs = S => [
-    ...S.documentTypeListItems().filter(
+
+const restOfTheDocs = (S: StructureBuilder) =>
+    S.documentTypeListItems().filter(
         listItem => !ignoredDocTypes.includes(listItem.getId() ?? "")
-    ),
-];
+    );
 
-const options = {
-    projectId: "9cr46sy3",
-    dataset: "production",
+const sanityClient = createSanityClient({
     useCdn: false,
-    apiVersion: "2023-05-07",
     withCredentials: true,
+});
+
+export const getDefaultDocumentNode = (S: StructureBuilder) => {
+    return S.document().views([S.view.form()]);
 };
 
-const client = sanityClient(options);
-
-console.log(S.documentTypeListItems()[0].spec.schemaType.preview);
-export const getDefaultDocumentNode = () => {
-    return S.document().views([
-        S.view.form(),
-        S.view
-            .component(Iframe)
-            .options({
-                url: `https://yasamnedir.com/?preview=true`,
-                // Optional: Add a reload button, or reload on new document revisions
-                reload: {
-                    button: true,
-                    revision: false,
-                },
-            })
-            .title("Önizleme"),
-    ]);
-};
-
-export default async () =>
+export default async (S: StructureBuilder) =>
     S.list()
         .title("İçerik")
         .items([
@@ -61,19 +41,7 @@ export default async () =>
                     S.document()
                         .schemaType("settings")
                         .documentId("settings")
-                        .views([
-                            S.view.form(),
-                            S.view
-                                .component(Iframe)
-                                .options({
-                                    url: `https://yasamnedir.com/?preview=true`,
-                                    reload: {
-                                        button: true,
-                                        revision: true,
-                                    },
-                                })
-                                .title("Önizleme"),
-                        ])
+                        .views([S.view.form()])
                 ),
 
             S.listItem()
@@ -84,26 +52,15 @@ export default async () =>
                 .child(S.document().schemaType("fourth").documentId("fourth")),
         ]);
 
-S.view
-    .component(Iframe)
-    .options({
-        url: `https://yasamnedir.web.app`,
-        reload: {
-            button: true,
-            revision: true,
-        },
-    })
-    .title("Preview");
-
-const commentFilters = async S => {
+const commentFilters = async (S: StructureBuilder) => {
     let slugs = new Set();
-    slugs = await client.fetch('*[_type == "comment"].post');
-    let uniqueSlugs = [...new Set(slugs)];
+    slugs = await sanityClient.fetch('*[_type == "comment"].post');
+    const uniqueSlugs = [...new Set(slugs)];
 
-    const postsThatHaveComments = approvedStatus =>
+    const postsThatHaveComments = (approvedStatus: string) =>
         uniqueSlugs.map(slug => {
             return S.listItem()
-                .title(slug)
+                .title(slug as string)
                 .child(() =>
                     S.documentList()
                         .title("Yorumlar")
@@ -113,7 +70,6 @@ const commentFilters = async S => {
                 );
         });
 
-    console.log(uniqueSlugs);
     return [
         S.listItem()
             .title("Bekleyen")

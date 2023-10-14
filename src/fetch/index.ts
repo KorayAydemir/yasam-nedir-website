@@ -1,13 +1,23 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { createClient } from "@sanity/client";
 
-export const sanityClient = createClient({
-    projectId: "9cr46sy3",
-    dataset: "production",
-    useCdn: true,
-    apiVersion: "2021-03-25",
-});
+export const createSanityClient = ({
+    useCdn = true,
+    withCredentials = false,
+}: {
+    useCdn?: boolean;
+    withCredentials?: boolean;
+} = {}) => {
+    return createClient({
+        projectId: "9cr46sy3",
+        dataset: "production",
+        apiVersion: "2021-03-25",
+        useCdn,
+        withCredentials,
+    });
+};
 
+const sanityClient = createSanityClient();
 const sanityClientFetcher = (query: string) => {
     const data = sanityClient.fetch(query);
     return { data };
