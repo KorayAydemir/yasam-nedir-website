@@ -10,7 +10,7 @@ import Sanity from "../sanity";
 const App = () => {
     return (
         <Routes>
-            <Route path="/admin" element={<Sanity />} />
+            <Route path="/admin/*" element={<Sanity />} />
             <Route path="/" element={<Landing />} />
             <Route element={<Layout />}>
                 <Route path="/yasambilim" element={<Yasambilim />} />

@@ -1,20 +1,15 @@
-import { Studio, type WorkspaceOptions } from "sanity";
+import { Studio } from "sanity";
 import { ReactElement, useEffect, useState } from "react";
+import { config } from "./sanity.config";
 
 const Sanity = () => {
     const [studio, setStudio] = useState<null | ReactElement>(null);
 
     useEffect(() => {
-        const config: WorkspaceOptions  = {
-            projectId: "9cr46sy3",
-            dataset: "production",
-            basePath: "/admin",
-            name: "Test",
-        }
-        setStudio(<Studio config={config} />) 
-    }, [])
+        setStudio(<Studio config={config} />);
+    }, []);
 
     return studio;
-}
+};
 
 export default Sanity;

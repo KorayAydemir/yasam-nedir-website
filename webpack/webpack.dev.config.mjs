@@ -103,6 +103,7 @@ const webConfig = {
         //filename: "[name].[contenthash].js",
         filename: "[name].js",
         path: path.resolve(__dirname, "../build/client"),
+        publicPath: "",
     },
     module: {
         rules: [
