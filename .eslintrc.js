@@ -11,7 +11,13 @@ module.exports = {
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/strict",
     ],
-    ignorePatterns: ["build", "coverage", "node_modules", "public"],
+    ignorePatterns: [
+        "build",
+        "coverage",
+        "node_modules",
+        "public",
+        ".eslintrc.js",
+    ],
     overrides: [
         {
             env: {

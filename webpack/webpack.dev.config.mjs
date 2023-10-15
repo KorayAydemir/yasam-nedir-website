@@ -40,13 +40,16 @@ const nodeConfig = {
                 use: ["style-loader", "css-loader", "postcss-loader"],
             },
             {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: 'asset/resource',
+                include: /node_modules/,
+                generator: {
+                    emit: false
+                }
+            },
+            {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset',
-                parser: {
-                    dataUrlCondition: {
-                        maxSize: 10 * 1024 // Inline images under 10KB
-                    }
-                },
                 generator: {
                     emit: false
                 },
@@ -119,10 +122,23 @@ const webConfig = {
                 use: ["style-loader", "css-loader", "postcss-loader"],
             },
             {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: 'asset/resource',
+                include: /node_modules/,
+                generator: {
+                    filename: 'build/fonts/[name]-[hash][ext]'
+                }
+            },
+            {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
                 generator: {
                     filename: '../images/[name]-[hash][ext]'
+                },
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 10 * 1024 // Inline images under 10KB
+                    }
                 },
                 exclude: /node_modules/,
             },

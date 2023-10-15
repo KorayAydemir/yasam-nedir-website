@@ -84,6 +84,8 @@ const fontStyleRenderer: ComponentType<BlockAnnotationProps> = props => {
     );
 };
 
+const mathIcon = () => <span style={{ fontWeight: "bold" }}>∑</span>;
+
 export const schemaTypes: SchemaTypeDefinition[] = [
     {
         type: "document",
@@ -216,11 +218,11 @@ export const schemaTypes: SchemaTypeDefinition[] = [
                         type: "youtube",
                         title: "Youtube Gömülü",
                     },
-                    //{
-                    //    type: "latex",
-                    //    icon: mathInlineIcon,
-                    //    title: "Inline math",
-                    //},
+                    {
+                        type: "latexInput",
+                        icon: mathIcon,
+                        title: "Inline math",
+                    },
                     {
                         type: "block",
                         styles: [
@@ -568,44 +570,6 @@ export const schemaTypes: SchemaTypeDefinition[] = [
             },
         ],
     },
-    //{
-    //    name: "portableTextWithLatex",
-    //    type: "array",
-    //    title: "Body",
-    //    of: [
-    //        {
-    //            type: "block",
-    //            title: "Block",
-    //            of: [
-    //                {
-    //                    type: "latex",
-    //                    icon: mathInlineIcon,
-    //                    title: "Inline math",
-    //                    of: [
-    //                        {
-    //                            title: "Yazı Pozisyonu",
-    //                            name: "alignment",
-    //                            type: "string",
-    //                            initialValue: "center",
-    //                            preview: {
-    //                                select: { title: "title", subtitle: "yo" },
-    //                            },
-    //                            options: {
-    //                                list: [
-    //                                    { title: "Sağ", value: "right" },
-    //                                    { title: "Sol", value: "left" },
-    //                                    { title: "Orta", value: "center" },
-    //                                ],
-    //                            },
-    //                        },
-    //                    ],
-    //                },
-    //            ],
-    //        },
-    //        { type: "latex", icon: mathIcon, title: "Math block" },
-    //    ],
-    //},
-
     {
         type: "document",
         title: "Denemeler",
@@ -637,11 +601,11 @@ export const schemaTypes: SchemaTypeDefinition[] = [
                         type: "youtube",
                         title: "Youtube Gömülü",
                     },
-                    //{
-                    //    type: "latex",
-                    //    icon: mathInlineIcon,
-                    //    title: "Inline math",
-                    //},
+                    {
+                        type: "latexInput",
+                        icon: mathIcon,
+                        title: "Inline math",
+                    },
                     {
                         type: "block",
                         styles: [
@@ -764,7 +728,6 @@ export const schemaTypes: SchemaTypeDefinition[] = [
             },
         ],
     },
-
     {
         type: "document",
         title: "Evrim Kuramı",
@@ -796,11 +759,11 @@ export const schemaTypes: SchemaTypeDefinition[] = [
                         type: "youtube",
                         title: "Youtube Gömülü",
                     },
-                    //{
-                    //    type: "latex",
-                    //    icon: mathInlineIcon,
-                    //    title: "Inline math",
-                    //},
+                    {
+                        type: "latexInput",
+                        icon: mathIcon,
+                        title: "Inline math",
+                    },
                     {
                         type: "block",
                         styles: [
@@ -976,11 +939,11 @@ export const schemaTypes: SchemaTypeDefinition[] = [
                         name: "textAlignment",
                         title: "Sunum",
                     },
-                    //{
-                    //    type: "latex",
-                    //    icon: mathInlineIcon,
-                    //    title: "Inline math",
-                    //},
+                    {
+                        type: "latexInput",
+                        icon: mathIcon,
+                        title: "Inline math",
+                    },
                     {
                         type: "block",
                         styles: [
@@ -1103,7 +1066,6 @@ export const schemaTypes: SchemaTypeDefinition[] = [
             },
         ],
     },
-
     {
         type: "object",
         title: "GirişModal",
@@ -1157,11 +1119,11 @@ export const schemaTypes: SchemaTypeDefinition[] = [
                         name: "textAlignment",
                         title: "Sunum",
                     },
-                    //{
-                    //    type: "latex",
-                    //    icon: mathInlineIcon,
-                    //    title: "Inline math",
-                    //},
+                    {
+                        type: "latexInput",
+                        icon: mathIcon,
+                        title: "Inline math",
+                    },
                     {
                         type: "block",
                         styles: [
@@ -1284,7 +1246,6 @@ export const schemaTypes: SchemaTypeDefinition[] = [
             },
         ],
     },
-
     {
         name: "comment",
         type: "document",

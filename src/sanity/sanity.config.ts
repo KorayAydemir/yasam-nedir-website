@@ -4,6 +4,7 @@ import { schemaTypes } from "./schemas";
 import deskStructure, {
     getDefaultDocumentNode,
 } from "./structure/deskStructure";
+import { latexInput } from "./schemas/common/latex-input";
 
 export const config = defineConfig<WorkspaceOptions>({
     projectId: "9cr46sy3",
@@ -17,6 +18,6 @@ export const config = defineConfig<WorkspaceOptions>({
         }),
     ],
     schema: {
-        types: schemaTypes,
+        types: [...schemaTypes, latexInput],
     },
 });
