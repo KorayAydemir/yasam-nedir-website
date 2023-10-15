@@ -49,7 +49,7 @@ export default async (S: StructureBuilder) =>
                 .child(S.document().schemaType("modal").documentId("modal")),
             S.listItem()
                 .title("Neden ?")
-                .child(S.document().schemaType("fourth").documentId("fourth")),
+                .child(S.document().schemaType("neden").documentId("neden")),
         ]);
 
 const commentFilters = async (S: StructureBuilder) => {

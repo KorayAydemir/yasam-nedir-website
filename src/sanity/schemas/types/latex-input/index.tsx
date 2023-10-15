@@ -18,9 +18,13 @@ const LatexPreview = (props: LatexPreviewProps): JSX.Element => {
     );
 };
 
+const mathIcon = () => <span style={{ fontWeight: "bold" }}>∑</span>;
+
 export const latexInput = defineType({
     type: "object",
     name: "latexInput",
+    icon: mathIcon,
+    title: "LaTeX Matematiksel İfade",
     fields: [
         {
             title: "LaTeX content",
