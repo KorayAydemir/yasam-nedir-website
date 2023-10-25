@@ -6,16 +6,19 @@ import Landing from "./infrastructure/views/landing/index";
 import Yasambilim from "./infrastructure/views/yasambilim/index";
 import Layout from "./infrastructure/layout/index";
 import Sanity from "../sanity";
+import PreviewProvider from "./utils/PreviewProvider";
 
 const App = () => {
     return (
-        <Routes>
-            <Route path="/admin/*" element={<Sanity />} />
-            <Route path="/" element={<Landing />} />
-            <Route element={<Layout />}>
-                <Route path="/yasambilim" element={<Yasambilim />} />
-            </Route>
-        </Routes>
+        <PreviewProvider>
+            <Routes>
+                <Route path="/admin/*" element={<Sanity />} />
+                <Route path="/" element={<Landing />} />
+                <Route element={<Layout />}>
+                    <Route path="/yasambilim" element={<Yasambilim />} />
+                </Route>
+            </Routes>
+        </PreviewProvider>
     );
 };
 export default App;

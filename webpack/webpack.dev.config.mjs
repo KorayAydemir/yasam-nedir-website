@@ -2,6 +2,7 @@ import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { fileURLToPath } from "url";
 import webpackNodeExternals from "webpack-node-externals";
+import DotenvWebpackPlugin from "dotenv-webpack";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -144,7 +145,9 @@ const webConfig = {
             },
         ],
     },
-    plugins: [],
+    plugins: [
+        new DotenvWebpackPlugin(),
+    ],
     optimization: {
         runtimeChunk: "single",
         splitChunks: {

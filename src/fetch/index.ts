@@ -42,3 +42,12 @@ export const {
 } = rtkSanityApi;
 
 export const { getLanding } = rtkSanityApi.endpoints;
+
+export const clientForPreview = createClient({
+    projectId: "9cr46sy3",
+    dataset: "production",
+    apiVersion: "2023-10-21",
+    useCdn: false,
+    perspective: "previewDrafts",
+    token: process.env.SANITY_TOKEN_LIVE_PREVIEW,
+});

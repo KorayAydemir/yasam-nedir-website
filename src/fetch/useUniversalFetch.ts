@@ -1,13 +1,23 @@
 import { useStore } from "react-redux";
-import { getLanding } from "./index";
+import { useLiveQuery } from "@sanity/preview-kit";
+import { useEffect, useState } from "react";
 
-export const useUniversalFetch = (): object => {
-    // todo: something like if (typeof window !== "undefined") useGetLandingQuery;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const useUniversalFetch = (ep: any): object | null => {
     const store = useStore();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const data = store.dispatch<any>(getLanding.initiate(""));
+    const [fetchedData, setFetchedData] = useState<null | object>(null);
 
-    //const { data, error, isLoading } = useGetLandingQuery();
+    useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        store.dispatch<any>(ep.initiate()).then( (res: {data: object}) => {
+            setFetchedData(res.data);
+        });
+    }, [ep, store]);
 
-    return { data /*error, isLoading*/ };
+    const [liveData, _loading] = useLiveQuery(
+        fetchedData,
+        `*[_type in ["settings"]]`
+    );
+
+    return liveData;
 };

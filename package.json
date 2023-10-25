@@ -19,6 +19,7 @@
     "@sanity/client": "^6.7.0",
     "@sanity/preview-kit": "^3.2.6",
     "dotenv": "^16.3.1",
+    "dotenv-webpack": "^8.0.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "get-youtube-id": "1.0.1",
