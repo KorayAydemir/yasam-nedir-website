@@ -1,5 +1,5 @@
 import LiveQueryProvider from "@sanity/preview-kit";
-import { clientForPreview } from "../../fetch";
+import { clientForPreview } from "../../sanity/clients";
 
 const PreviewProvider = ({ children }: React.PropsWithChildren) => {
     const previewMode = process.env.SANITY_PREVIEW_ENABLED === "true";

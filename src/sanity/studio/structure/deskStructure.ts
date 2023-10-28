@@ -1,5 +1,5 @@
 import { StructureBuilder } from "sanity/desk";
-import { createSanityClient } from "../../fetch/index";
+import { createSanityClient } from "../../clients";
 
 const ignoredDocTypes = ["comment"];
 

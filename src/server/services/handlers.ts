@@ -1,11 +1,11 @@
 import { createReactApp } from "./react-app";
 import { setupStore } from "../../store/index";
-import { getRunningQueriesThunk } from "../../fetch/index";
 import { Request, Response } from "express";
 import {
     AnyAsyncThunk,
     PendingActionFromAsyncThunk,
 } from "@reduxjs/toolkit/dist/matchers";
+import { getRunningQueriesThunk } from "../../fetch/rtkSanityApi";
 
 export const initialRequestHandler = async (req: Request, res: Response) => {
     const store = setupStore();
