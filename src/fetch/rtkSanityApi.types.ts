@@ -5,7 +5,7 @@ export type QueryDefForRtk = QueryDefinition<
     unknown,
     ({ query }: { query: string }) => Promise<
         | {
-              data: Promise<object>;
+              data: Promise<unknown>;
               error?: undefined;
           }
         | {
@@ -21,7 +21,7 @@ export type QueryDefForRtk = QueryDefinition<
 export type EndpointBuilderType = EndpointBuilder<
     ({ query }: { query: string }) => Promise<
         | {
-              data: Promise<object>;
+              data: Promise<unknown>;
               error?: undefined;
           }
         | {

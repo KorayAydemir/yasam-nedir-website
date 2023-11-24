@@ -1,8 +1,8 @@
-export interface Query {
+interface Query {
     query: string;
 }
 
-export interface Endpoints {
+interface Endpoints {
     [key: string]: Query;
 }
 

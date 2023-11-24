@@ -30,7 +30,7 @@ const nodeConfig = {
     module: {
         rules: [
             {
-                test: /\.(?:js|mjs|ts|tsx)$/,
+                test: /\.(?:js|ts|tsx)$/,
                 include: path.resolve(__dirname, '../', 'src'),
                 use: {
                     loader: "babel-loader",
@@ -98,6 +98,7 @@ const webConfig = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"],
     },
+    target: 'web',
     mode: "development",
     entry: {
         "yasam.nedir.front-end.app": "./src/client/index.tsx"
@@ -112,7 +113,7 @@ const webConfig = {
     module: {
         rules: [
             {
-                test: /\.(?:js|mjs|ts|tsx)$/,
+                test: /\.(?:js|ts|tsx)$/,
                 include: path.resolve(__dirname, '../', 'src'),
                 use: {
                     loader: "babel-loader",
