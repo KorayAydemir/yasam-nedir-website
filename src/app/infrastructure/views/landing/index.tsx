@@ -4,9 +4,9 @@ const ahto = "../../../../../public/assets/images/ahto.png";
 import Links from "./components/links";
 
 const Landing = () => {
-    const landingData = useUniversalFetch(getLanding);
-    console.log("getlanding", getLanding);
-    console.log("landingdata", landingData);
+    //const landingData = useUniversalFetch(getLanding);
+    //console.log("getlanding", getLanding);
+    //console.log("landingdata", landingData);
 
     return (
         <>
